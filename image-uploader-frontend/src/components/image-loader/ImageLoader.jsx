@@ -1,27 +1,46 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './ImageLoader.css'
-import image from '../../assets/image.svg'
+import DragNDropImage from '../drag-n-drop-image/DragNDropImage';
 
-export default function ImageLoader({ src, alt, ...props }) {
-    const [imageSrc, setImageSrc] = useState(null);
+export default function ImageLoader({ onUpload }) {
+    const [file, setFile] = useState(null);
+    const [error, setError] = useState('');
 
-    useEffect(() => {
-        const imageLoader = new Image()
-        imageLoader.src = src
-        imageLoader.onload = () => {
-            setImageSrc(src)
+
+    const handleChange = (e, file) => {
+        const selectedFile = file === undefined ? e.target.files[0] : file;
+
+        // Validate file type and size
+        if (selectedFile.type !== 'image/jpeg' && selectedFile.type !== 'image/png') {
+            setError('File type not supported');
+            return;
         }
-    }, [src]);
 
-    const imageCollector =
-        <div className="image-loader">
-            
-            <img src={image} alt="upload" />
-            <p>Drag & Drop your Image here</p>
+        if (selectedFile.size > 1000000) {
+            setError('File size cannot exceed more than 1MB');
+            return;
+        }
 
-        </div>;
+        setError('');
+        setFile(selectedFile);
+        handleSubmit(selectedFile);
+    }
 
+    const handleSubmit = async (selectedFile) => {
+
+        if (!selectedFile) {
+            setError('Please select an image');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('file', selectedFile);
+
+
+        onUpload(formData);
+    }
 
     return (
         <>
@@ -29,16 +48,33 @@ export default function ImageLoader({ src, alt, ...props }) {
             <p>File should be jpeg, png...</p>
 
 
-            {imageSrc ? (
-                <img src={imageSrc} alt={alt} {...props} />
-            ) : (imageCollector)}
+            <form
+                id='image-loader-form'
+                className='image-loader__form'
+                onSubmit={handleSubmit}
+            >
+                <DragNDropImage onUpload={handleChange}/>
+                <input
+                    title='file'
+                    className='image-loader__input'
+                    name='file'
+                    type="file"
+                    id="image-loader"
+                    accept="image/png, image/jpeg"
+                    onChange={handleChange}
+                />
 
-            <p>Or</p>
+                {error && <p className='error'>{error}</p>}
 
-            <button className="btn">Choose a file</button>
+                <p>Or</p>
 
+                <label
+                    htmlFor="image-loader"
+                    className='btn'
+                >
+                    Choose a file
+                </label>
+            </form>
         </>
     )
-
 }
-
