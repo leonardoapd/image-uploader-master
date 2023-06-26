@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\image-uploader-backend.props" />
+</Project>
