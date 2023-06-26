@@ -36,7 +36,13 @@ export default function ImageLoader({ onUpload }) {
         }
 
         const formData = new FormData();
-        formData.append('file', selectedFile);
+        formData.append(
+            'file',
+            selectedFile,
+        );
+        formData.append('FileName', selectedFile.name);
+        formData.append('FileType', selectedFile.type);
+        formData.append('FolderName', 'TestFolder');
 
 
         onUpload(formData);
@@ -53,7 +59,7 @@ export default function ImageLoader({ onUpload }) {
                 className='image-loader__form'
                 onSubmit={handleSubmit}
             >
-                <DragNDropImage onUpload={handleChange}/>
+                <DragNDropImage onUpload={handleChange} />
                 <input
                     title='file'
                     className='image-loader__input'
