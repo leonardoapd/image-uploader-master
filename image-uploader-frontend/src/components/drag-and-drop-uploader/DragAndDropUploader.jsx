@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import image from '../../assets/image.svg'
-import './DragNDropImage.css'
+import './DragAndDropUploader.css'
 
-export default function DragNDropImage({ onUpload }) {
+export default function DragAndDropUploader({ onUpload }) {
 
 
     const handleDrop = (e) => {

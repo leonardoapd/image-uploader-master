@@ -19,14 +19,11 @@
   --white-color: #ffffff;
 }
 
-
-body {
-  margin: 0;
+* {
+  box-sizing: border-box;
   padding: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  margin: 0;
+  scroll-behavior: smooth;
 }
 
 @media (prefers-color-scheme: light) {

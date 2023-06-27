@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
 import { images } from "../../constants/images";
-import './LoadingOutcome.css';
+import './UploadedView.css'
 import Skeleton from '@mui/material/Skeleton'
 
-export default function LoadingOutcome({ imgLoadedSrc }) {
+export default function UploadedView({ imgLoadedSrc }) {
     const [isCopied, setIsCopied] = useState(false);
     const [link] = useState(imgLoadedSrc);
     const [isLoading, setIsLoading] = useState(true);
@@ -25,6 +25,10 @@ export default function LoadingOutcome({ imgLoadedSrc }) {
 
     return (
         <>
+            {/* Go back button */}
+            <button className="btn-back" onClick={() => window.location.href = '/'}>
+                <i className="material-symbols-outlined">arrow_back</i>
+            </button>
             <header className="header-container">
                 <img className="info-img" src={images.success} alt="success" />
                 <h1 className="title">Uploaded Successfully!</h1>

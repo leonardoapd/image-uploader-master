@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
-import './ImageLoader.css'
-import DragNDropImage from '../drag-n-drop-image/DragNDropImage';
+import './ImageUploadForm.css'
+import DragAndDropUploader from '../drag-and-drop-uploader/DragAndDropUploader';
 
-export default function ImageLoader({ onUpload }) {
+export default function ImageUploadForm({ onUpload }) {
     const [file, setFile] = useState(null);
     const [error, setError] = useState('');
 
@@ -61,7 +61,7 @@ export default function ImageLoader({ onUpload }) {
                 className='image-loader__form'
                 onSubmit={handleSubmit}
             >
-                <DragNDropImage onUpload={handleChange} />
+                <DragAndDropUploader onUpload={handleChange} />
                 <input
                     title='file'
                     className='image-loader__input'
