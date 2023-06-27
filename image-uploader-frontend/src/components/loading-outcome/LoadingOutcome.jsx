@@ -6,6 +6,7 @@ import './LoadingOutcome.css';
 export default function LoadingOutcome({ imgLoadedSrc }) {
 
     const [isCopied, setIsCopied] = useState(false);
+    const [link] = useState(imgLoadedSrc);
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -30,7 +31,8 @@ export default function LoadingOutcome({ imgLoadedSrc }) {
                 <input
                     className="link-container__input"
                     type="text"
-                    value={imgLoadedSrc}
+                    value={link}
+                    readOnly
                 />
                 <button
                     className="link-container__btn"
