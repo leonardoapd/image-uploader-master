@@ -14,7 +14,8 @@ export default function Container() {
     const [imgLoadedSrc, setImgLoadedSrc] = useState('');
     const [isLoaded, setIsLoaded] = useState(false);
     const [isError, setIsError] = useState(false);
-    const apiUrl = 'https://localhost:7070/api/File';
+    
+    const apiUrl = import.meta.env.VITE_API_URL;
 
     const renderComponents = () => {
         if (isLoading) {
