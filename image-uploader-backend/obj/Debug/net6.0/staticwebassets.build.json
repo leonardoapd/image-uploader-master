@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "YZJtHfeda4brH/VpoAhQo6VVxNlVPvEqjJ2gXcOLEW4=",
+  "Source": "image-uploader-backend",
+  "BasePath": "_content/image-uploader-backend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
