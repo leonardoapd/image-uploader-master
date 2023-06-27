@@ -4,11 +4,14 @@ import axios from 'axios';
 import './Container.css'
 import LoadingBar from '../loading-bar/LoadingBar';
 import ImageLoader from '../image-loader/ImageLoader';
+import LoadingOutcome from '../loading-outcome/LoadingOutcome';
 
 export default function Container() {
 
     const [isLoading, setIsLoading] = useState(false);
     const [progress, setProgress] = useState(0);
+    const [imgLoadedSrc, setImgLoadedSrc] = useState('');
+    const [isLoaded, setIsLoaded] = useState(false);
     const apiUrl = 'https://localhost:7070/api/File';
 
     const renderComponents = () => {
@@ -16,10 +19,9 @@ export default function Container() {
             return (
                 <LoadingBar progress={progress} />
             )
-        } else if (progress === 100) {
+        } else if (isLoaded) {
             return (
-                //TODO: Show success message
-                <p>Uploaded</p>
+                <LoadingOutcome imgLoadedSrc={imgLoadedSrc} />
             )
         } else {
             return (
@@ -54,11 +56,14 @@ export default function Container() {
             console.log(res);
             setIsLoading(false);
             setProgress(100);
-            // TODO: Show success message
+            setImgLoadedSrc(res.data);
+            setIsLoaded(true);
 
         }).catch((err) => {
             console.log(err);
             setIsLoading(false);
+            setProgress(0);
+            setIsLoaded(false);
         });
 
     }

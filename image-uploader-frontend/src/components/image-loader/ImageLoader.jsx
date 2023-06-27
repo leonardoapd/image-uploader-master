@@ -50,8 +50,10 @@ export default function ImageLoader({ onUpload }) {
 
     return (
         <>
-            <h1>Upload your image</h1>
-            <p>File should be jpeg, png...</p>
+            <header className='header-container'>
+                <h1>Upload your image</h1>
+                <p>File should be jpeg, png...</p>
+            </header>
 
 
             <form
