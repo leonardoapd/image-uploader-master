@@ -6,13 +6,29 @@ import LoadingBar from '../loading-bar/LoadingBar';
 import ImageLoader from '../image-loader/ImageLoader';
 
 export default function Container() {
-    const [showLoadingBar, setShowLoadingBar] = useState(false); // [1
+
     const [isLoading, setIsLoading] = useState(false);
     const [progress, setProgress] = useState(0);
     const apiUrl = 'https://localhost:7070/api/File';
 
+    const renderComponents = () => {
+        if (isLoading) {
+            return (
+                <LoadingBar progress={progress} />
+            )
+        } else if (progress === 100) {
+            return (
+                //TODO: Show success message
+                <p>Uploaded</p>
+            )
+        } else {
+            return (
+                <ImageLoader onUpload={handleUpload} />
+            )
+        }
+    }
+
     const handleUpload = (formData) => {
-        setShowLoadingBar(true);
         setIsLoading(true);
         setProgress(0);
 
@@ -38,6 +54,8 @@ export default function Container() {
             console.log(res);
             setIsLoading(false);
             setProgress(100);
+            // TODO: Show success message
+
         }).catch((err) => {
             console.log(err);
             setIsLoading(false);
@@ -47,11 +65,7 @@ export default function Container() {
 
     return (
         <div className='container'>
-            {showLoadingBar ? (
-                <LoadingBar progress={progress} />
-            ) : (
-                <ImageLoader onUpload={handleUpload} />
-            )}
+            {renderComponents()}
         </div>
     )
 }

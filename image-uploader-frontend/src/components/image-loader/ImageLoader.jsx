@@ -42,7 +42,7 @@ export default function ImageLoader({ onUpload }) {
         );
         formData.append('FileName', selectedFile.name);
         formData.append('FileType', selectedFile.type);
-        formData.append('FolderName', 'TestFolder');
+        formData.append('FolderName', 'MyPictures');
 
 
         onUpload(formData);
