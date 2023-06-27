@@ -24,11 +24,7 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
-        "API_KEY_STORAGE": "AIzaSyBgUUCt1LoyfWPAIreABztyvvU12ex0prs",
-        "AUTH_EMAIL": "leonardop763@gmail.com",
-        "AUTH_PASSWORD": "LeoAnd12345678",
-        "BUCKET_NAME": "image-uploader-e8185.appspot.com"
+        "ASPNETCORE_ENVIRONMENT": "Development"
       }
     }
   }
