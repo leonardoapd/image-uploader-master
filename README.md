@@ -79,7 +79,7 @@ $ git clone https://github.com/leonardoapd/image-uploader-master.git
 $ npm install
 
 # Run the app
-$ vite dev
+$ npm run dev
 ```
 
 For the backend side, you will need .NET 6.0 installed on your computer. You can download it here: [Download .NET 6.0](https://dotnet.microsoft.com/download/dotnet/6.0). Once you have .NET 6.0 installed, you can run the backend API by navigating to the ImageUploader.API directory and running the following command:
