@@ -1,6 +1,6 @@
 <!-- Please update value in the {}  -->
 
-<h1 align="center">{Your project name}</h1>
+<h1 align="center">Image Uploader Master</h1>
 
 <div align="center">
    Solution for a challenge from  <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>.
@@ -8,11 +8,11 @@
 
 <div align="center">
   <h3>
-    <a href="https://{your-demo-link.your-domain}">
+    <a href="https://image-uploader-page.netlify.app">
       Demo
     </a>
     <span> | </span>
-    <a href="https://{your-url-to-the-solution}">
+    <a href="https://github.com/leonardoapd/image-uploader-master/">
       Solution
     </a>
     <span> | </span>
@@ -37,22 +37,27 @@
 
 ## Overview
 
-![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png)
+![gif](./image-uploader.gif)
 
-Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
+Project Description:
 
-- Where can I see your demo?
-- What was your experience?
-- What have you learned/improved?
-- Your wisdom? :)
+Welcome to my Image Uploader Fullstack App! This project showcases my skills in developing a fullstack application using React, .NET Web API, and Firebase for image storage. With this app, users can easily upload and manage their images.
+
+Demo: You can see the live demo of my Image Uploader Fullstack App by visiting this link: [Image Uploader Demo](https://image-uploader-page.netlify.app/)
+
+Experience: During the development of this project, I gained valuable experience and knowledge. I had the opportunity to work with React and improve my understanding of managing React state. I implemented axios to fetch data from the backend API and learned how to utilize Material-UI (Mui) components to create a visually appealing UI. I also implemented skeleton loading to enhance the user experience while images are being loaded. On the backend side, I developed a .NET Web API to handle various operations. Additionally, I integrated Firebase storage with the .NET backend to securely store the uploaded images.
+
+This project served as a great learning experience for me, as it allowed me to strengthen my frontend and backend development skills. By seamlessly integrating different technologies, I successfully built a robust fullstack application that showcases my abilities in creating an efficient and user-friendly image uploader.
 
 ### Built With
 
 <!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
 
+- [Vite](https://vitejs.dev/)
 - [React](https://reactjs.org/)
-- [Vue.js](https://vuejs.org/)
-- [Tailwind](https://tailwindcss.com/)
+- [.NET Web API](https://dotnet.microsoft.com/apps/aspnet/apis)
+- [Firebase](https://firebase.google.com/)
+- [Material-UI](https://material-ui.com/)
 
 ## Features
 
@@ -68,14 +73,33 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/your-user-name/your-project-name
+$ git clone https://github.com/leonardoapd/image-uploader-master.git
 
 # Install dependencies
 $ npm install
 
 # Run the app
-$ npm start
+$ vite dev
 ```
+
+For the backend side, you will need .NET 6.0 installed on your computer. You can download it here: [Download .NET 6.0](https://dotnet.microsoft.com/download/dotnet/6.0). Once you have .NET 6.0 installed, you can run the backend API by navigating to the ImageUploader.API directory and running the following command:
+
+```bash
+# Run the backend API
+$ dotnet watch run
+```
+
+You will also need to create a .env file in the root directory of the project and add the following environment variables:
+
+```bash
+# Firebase Config
+"API_KEY_STORAGE": "your_api_key",
+"AUTH_EMAIL": "your_email",
+"AUTH_PASSWORD": "your_password",
+"BUCKET_NAME": "your_bucket_name"
+```
+
+
 
 ## Acknowledgements
 
@@ -87,6 +111,6 @@ $ npm start
 
 ## Contact
 
-- Website [your-website.com](https://{your-web-site-link})
-- GitHub [@your-username](https://{github.com/your-usermame})
-- Twitter [@your-twitter](https://{twitter.com/your-username})
+- Website [leonardo-perdomo.netlify.app](https://leonardo-perdomo.netlify.app)
+- GitHub [@leonardoapd](https://github.com/leonardoapd)
+- Twitter [@leonardoapd](https://twitter.com/leonardoapd)
